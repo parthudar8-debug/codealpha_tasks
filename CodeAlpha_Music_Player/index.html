@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 3D Particles Background -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <!-- 3D Geometric Shapes -->
+        <div class="geo-shape cube"></div>
+        <div class="geo-shape pyramid"></div>
+        <div class="geo-shape sphere"></div>
+        <div class="geo-shape cube"></div>
+    </div>
+
+    <div class="music-player">
+        <!-- Header -->
+        <header class="player-header">
+            <div class="header-top">
+                <h1 class="player-title">
+                    <i class="fas fa-music"></i>
+                    Music Player
+                </h1>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" 
+                           id="searchInput" 
+                           placeholder="Search songs, artists..." 
+                           class="search-input">
+                    <button class="search-clear" id="searchClear" title="Clear Search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Album Cover -->
+        <section class="album-section">
+            <div class="album-container">
+                <img id="albumCover" 
+                     src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=400&fit=crop" 
+                     alt="Album Cover" 
+                     class="album-cover">
+                <div class="album-shadow"></div>
+            </div>
+        </section>
+
+        <!-- Song Information -->
+        <section class="song-info">
+            <h2 id="songTitle" class="song-title">Loading...</h2>
+            <p id="artistName" class="artist-name">Artist</p>
+        </section>
+
+        <!-- Progress Bar -->
+        <section class="progress-section">
+            <div class="progress-container">
+                <span id="currentTime" class="time-display">0:00</span>
+                <div class="progress-bar">
+                    <div class="progress-track" id="progressTrack">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-handle" id="progressHandle"></div>
+                    </div>
+                </div>
+                <span id="totalTime" class="time-display">0:00</span>
+            </div>
+        </section>
+
+        <!-- Control Buttons -->
+        <section class="controls-section">
+            <div class="main-controls">
+                <button class="control-btn shuffle-btn" id="shuffleBtn" title="Shuffle">
+                    <i class="fas fa-random"></i>
+                </button>
+                
+                <button class="control-btn prev-btn" id="prevBtn" title="Previous">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                
+                <button class="control-btn play-pause-btn" id="playPauseBtn" title="Play/Pause">
+                    <i class="fas fa-play" id="playPauseIcon"></i>
+                </button>
+                
+                <button class="control-btn next-btn" id="nextBtn" title="Next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                
+                <button class="control-btn repeat-btn" id="repeatBtn" title="Repeat">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Volume Control -->
+        <section class="volume-section">
+            <div class="volume-container">
+                <i class="fas fa-volume-down volume-icon"></i>
+                <div class="volume-slider">
+                    <div class="volume-track" id="volumeTrack">
+                        <div class="volume-fill" id="volumeFill"></div>
+                        <div class="volume-handle" id="volumeHandle"></div>
+                    </div>
+                </div>
+                <i class="fas fa-volume-up volume-icon"></i>
+            </div>
+        </section>
+
+        <!-- Playlist Section -->
+        <section class="playlist-section">
+            <div class="playlist-header" id="playlistHeader">
+                <h3 class="playlist-title">
+                    <i class="fas fa-list"></i>
+                    <span id="playlistName">My Playlist</span>
+                    <span class="song-count" id="songCount">(8 songs)</span>
+                </h3>
+                <button class="playlist-toggle" id="playlistToggle" title="Toggle Playlist">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="playlist-content" id="playlistContent">
+                <!-- Playlist items will be dynamically generated -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="audioPlayer"></audio>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
